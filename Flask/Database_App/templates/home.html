@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Home Page</title>
+    </head>
+    <body>
+        <p>The submitted entries are written to the local database</p>
+        <br>
+        <p>Provide both firstname and lastname</p>
+
+        <div>
+            <form method="POST" action="{{url_for('predict')}}">
+                <input type="text" name="firstname" placeholder="First name">
+                <input type="text" name="lastname" placeholder="Last name">
+                <br>
+                <button type="reset">Clear</button>
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+        
+        <br>
+
+        {% if firstname and lastname%}
+        <div>
+            The firstname entered is {{firstname}} and the lastname entered is {{lastname}}
+        </div>
+        {% endif %}
+
+
+    </body>
+</html>

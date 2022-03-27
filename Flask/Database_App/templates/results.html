@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Result Page</title>
+    </head>
+    <body>
+        <p>This page shows users data retrieved from the local database</p>
+        
+        <br>
+
+        {% if userslist|length > 0 %}
+            <ul>
+                {% for user in userslist %}
+                    <li> {{user.firstname + ' ' + user.lastname}} </li>
+                {% endfor %}
+            </ul>
+        {% else %}
+
+            <p>Database is empty</p>
+
+        {% endif %}
+
+
+    </body>
+</html>
