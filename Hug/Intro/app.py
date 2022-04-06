@@ -14,7 +14,7 @@ def get_books(title:hug.types.text):
 # Expose as API
 # To run, open Terminal and:
 # (venv) ...\Hug_intro>hug -f app.py
-@hug.get('/books')
+@hug.get('/books', examples="title=studyguide")
 @hug.local()
 def get_books(title:hug.types.text):
     """Get book by title"""
@@ -25,7 +25,7 @@ def get_books(title:hug.types.text):
 # (venv) ...\Hug_intro>hug -f app.py -c help
 # (venv) ...\Hug_intro>hug -f app.py -c get_books "Book Name"
 @hug.cli()
-@hug.get('/books')
+@hug.get('/books', examples="title=studyguide")
 @hug.local()
 def get_books(title:hug.types.text):
     """Get book by title"""
