@@ -31,6 +31,7 @@ async def predict(name:str = Query(None, min_length=2, max_length=7)):
         result = "male"
     return {"orig_name": name, "prediction": result}
 
+# Alternative to GET, but same results
 @app.post('/predict/{name}')
 async def predict(name):
     vectorized_name = gender_cv.transform([name]).toarray()
