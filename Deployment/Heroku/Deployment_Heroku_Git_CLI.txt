@@ -1,0 +1,20 @@
+# After app has been created in Heroku website, go to Git Bash and then repository main folder, and then..
+
+# For logging in to Heroku account
+$ heroku login
+
+# Create remote for app named as 'inspiringwords' in Heroku, remote repository is named 'heroku' by default
+$ heroku git:remote -a inspiringwords
+
+# Renaming remote repository default name 'heroku' to 'heroku-inspiringwords'
+$ git remote rename heroku heroku-inspiringwords
+
+# Listing remote repository
+$ git remote -v
+
+# Pushing only a specific folder 'Fav_Quotes' in existing local 'master' to remote repository 'heroku-inspiringwords'
+# Make sure to commit project files to local repository 'master' before pushing to remote
+$ git subtree push --prefix Flask/Projects/Fav_Quotes heroku-inspiringwords master
+
+# Deleting a remote heroku-inspiringwords (when no longer needed e.g. app deleted on Heroku)
+$ git remote rm heroku-inspiringwords
