@@ -1,0 +1,5 @@
+# For Flask, first 'app' is .py filename, second 'app' is the name assigned to Flask(__name__) instance inside app.py 
+web: gunicorn app::app 
+
+# For Streamlit
+web: sh setup.sh && streamlit run app.py
