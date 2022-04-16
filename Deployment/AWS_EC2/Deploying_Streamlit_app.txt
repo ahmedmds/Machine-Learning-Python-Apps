@@ -1,0 +1,42 @@
+# Sample app deployed
+Salary_Predictor_App
+
+# Detailed resources for installation and Streamlit app deployment instructions:
+https://medium.com/swlh/showcase-you-streamlit-web-app-to-the-world-with-aws-ec2-db603c69aa28
+https://towardsdatascience.com/how-to-deploy-a-streamlit-app-using-an-amazon-free-ec2-instance-416a41f69dc3
+https://gist.github.com/jaskiratr/cfacb332bfdff2f63f535db7efb6df93
+
+# Place .pem file in any AWS keys folder 
+.pem downloaded when Keypair instance is created
+
+# Additional notes,
+
+# Within AWS Linux instance (accessed using Windows CMD)
+# After installing Git, the app repository needs to cloned,
+# but since the app is in the subdirectory of repository,
+# clone the entire repository but then separate the relevant subdirectory and then delete the balance repository
+$ git clone https://github.com/<github_user>/Machine-Learning-Python-Apps.git
+... Machine-Learning-Python-Apps]$ sudo mv Streamlit/Salary_Predictor_App/ /home/ec2-user
+$ rm -r -f Machine-Learning-Python-Apps/
+$ cd Salary_Predictor_App/
+... Salary_Predictor_App]$ rm -r -f Procfile setup.sh
+# Install packages, run each line so any non-installable package is skipped
+... Salary_Predictor_App]$ cat requirements.txt | xargs -n 1 pip3 install
+... Salary_Predictor_App]$ streamlit run app.py
+
+# To keep the app running
+... Salary_Predictor_App]$ sudo yum install tmux
+... Salary_Predictor_App]$ tmux new -s SalaryPredictorML
+... Salary_Predictor_App]$ streamlit run app.py
+# Press Ctrl+B and then D (don’t press Ctrl when pressing D) to detach your session from the terminal and keeping it running in the background
+
+# Attach the same session using e.g. to close the app:
+... Salary_Predictor_App]$ tmux attach -t SalaryPredictorML
+
+# If app is not starting at port 8501 then it means another instance of a Streamlit is already running at 8501
+# Find the process ID for this port
+... Salary_Predictor_App]$ ps aux | grep streamlit
+... Salary_Predictor_App]$ kill -9 <process_id>
+
+# As an alternative to using CMD to connect from AWS to ssh, use EC2 Instance Connect from browser
+# Go to EC2 instances dashboard and click on the instance and then click Connect!
