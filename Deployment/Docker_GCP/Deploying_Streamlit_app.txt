@@ -1,0 +1,41 @@
+# Sample app deployed
+Salary_Predictor_App
+
+Activate virtual environment
+
+Create requirements.txt
+
+Create GCP account 
+Create Project 'salarypredictormlstreamlitcont' in GCP Console
+
+# The Dockerfile gives the instructions to create Docker Image
+Create Dockerfile
+
+# Docker Official Image for python https://hub.docker.com/_/python
+
+# app.yaml file is used to configure the app
+Create app.yaml file
+
+# Get gcloud SDK
+https://cloud.google.com/sdk/docs/install
+
+# After gcloud SDK installation complete, then in VSCode CMD
+...\Salary_Predictor_App>gcloud --help
+...\Salary_Predictor_App>gcloud projects list
+# Show current project in gcloud
+...\Salary_Predictor_App>gcloud config get-value project
+# Set project in gcloud
+...\Salary_Predictor_App>gcloud config set project salarypredictormlstreamlitcont
+
+# Deploy app with Docker on GCP
+...\Salary_Predictor_App>gcloud app deploy
+
+# Access app
+https://salarypredictormlstreamlitcont.wn.r.appspot.com
+https://salarypredictormlstreamlitcont.appspot.com/
+
+# Stream logs
+...\Salary_Predictor_App>gcloud app logs tail -s default
+
+# To see deployed instance: Select project > Go to GCP navigation menu > App Engine > Dashboard/Instances/Versions
+# Can be deleted from the Instances/Versions/Services

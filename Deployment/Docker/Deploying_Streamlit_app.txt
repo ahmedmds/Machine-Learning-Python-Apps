@@ -1,0 +1,31 @@
+# Sample app deployed
+Salary_Predictor_App
+
+Activate virtual environment
+
+Create requirements.txt
+
+# The Dockerfile gives the instructions to create Docker Image
+Create Dockerfile
+
+# Docker Official Image for python https://hub.docker.com/_/python
+
+Install Docker extension on VSCode
+
+# Inside CMD in project directory (containing the Dockerfile), where 'salarypredmlimage' is image name and 'latest' is tag name:
+(venv) ...\Salary_Predictor_App>docker build -t salarypredmlimage:latest .
+
+# Similarly, in case of production and development images:
+# (venv) ...\Salary_Predictor_App>docker build -t salarypredmlimage:latest Dockerfile.dev
+# (venv) ...\Salary_Predictor_App>docker build -t salarypredmlimage:latest Dockerfile.prod
+
+# Use 'docker scan' to run Snyk tests against images to find vulnerabilities and learn how to fix them
+
+# List images
+(venv) ...\Salary_Predictor_App>docker images
+
+# Build a container using the image, exposing the port (second '8501' is for the container)
+(venv) ...\Salary_Predictor_App>docker run -p 8501:8501 salarypredmlimage:latest
+
+# To run the containerized app on browser
+http://localhost:8501/
