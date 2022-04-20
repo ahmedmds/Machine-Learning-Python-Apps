@@ -12,7 +12,7 @@ https://gist.github.com/jaskiratr/cfacb332bfdff2f63f535db7efb6df93
 # Additional notes,
 
 # Within AWS Linux instance (accessed using Windows CMD)
-# After installing Git, the app repository needs to cloned,
+# After installing Git, the app repository needs to cloned (instead of GitHub, the project files can also be transferred from local machine using WinSCP, see above article),
 # but since the app is in the subdirectory of repository,
 # clone the entire repository but then separate the relevant subdirectory and then delete the balance repository
 $ git clone https://github.com/<github_user>/Machine-Learning-Python-Apps.git
